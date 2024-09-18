@@ -17,9 +17,11 @@ from sklearn.metrics import r2_score, mean_absolute_error
 
 
 
-st.title('Stock Price Predictions')
-st.sidebar.info('Welcome to the Stock Price Prediction App. Choose your options below')
-st.sidebar.info("Created and designed by [Vikas Sharma](https://www.linkedin.com/in/vikas-sharma005/)")
+st.title('PROJECT: FOREX AND STOCKS PRICE PREDICTION SYSTEM USING MACHINE LEARNING (RANDOM FOREST TIME SERIES ALGORITHM)')
+st.sidebar.info("By: BASHIR BAMAI")
+st.sidebar.info("DATASET: YAHOO FINANCE")
+
+st.sidebar.info('Choose your options below')
 
 def main():
     option = st.sidebar.selectbox('Make a choice', ['Visualize','Recent Data', 'Predict'])
@@ -108,26 +110,14 @@ def dataframe():
 
 
 def predict():
-    model = st.radio('Choose a model', ['LinearRegression', 'RandomForestRegressor', 'ExtraTreesRegressor', 'KNeighborsRegressor', 'XGBoostRegressor'])
+    # model = st.radio('Choose a model', ['LinearRegression', 'RandomForestRegressor', 'ExtraTreesRegressor', 'KNeighborsRegressor', 'XGBoostRegressor'])
+    
     num = st.number_input('How many days forecast?', value=5)
     num = int(num)
+    
     if st.button('Predict'):
-        if model == 'LinearRegression':
-            engine = LinearRegression()
-            model_engine(engine, num)
-        elif model == 'RandomForestRegressor':
-            engine = RandomForestRegressor()
-            model_engine(engine, num)
-        elif model == 'ExtraTreesRegressor':
-            engine = ExtraTreesRegressor()
-            model_engine(engine, num)
-        elif model == 'KNeighborsRegressor':
-            engine = KNeighborsRegressor()
-            model_engine(engine, num)
-        else:
-            engine = XGBRegressor()
-            model_engine(engine, num)
-
+        engine = RandomForestRegressor()
+        model_engine(engine, num)
 
 def model_engine(model, num):
     # getting only the closing price
