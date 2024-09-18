@@ -46,7 +46,7 @@ option = option.upper()
 
 
 today = datetime.date.today()
-duration = st.sidebar.number_input('Enter the duration', value=3000)
+duration = 3000
 before = today - datetime.timedelta(days=duration)
 start_date = st.sidebar.date_input('Start Date', value=before)
 end_date = st.sidebar.date_input('End date', today)
