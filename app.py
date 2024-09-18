@@ -38,9 +38,11 @@ def download_data(op, start_date, end_date):
     return df
 
 
-
-option = st.sidebar.text_input('Enter a Stock Symbol', value='SPY')
+symbol_type = st.sidebar.selectbox('Data Type', ['Stocks', 'Forex'])
+option = st.sidebar.text_input('Enter a Symbol', value='SPY')
 option = option.upper()
+
+
 today = datetime.date.today()
 duration = st.sidebar.number_input('Enter the duration', value=3000)
 before = today - datetime.timedelta(days=duration)
